@@ -103,6 +103,12 @@ func (grc *GetRecordsConfig) InStringFormat(timeZone, userLocale string) *GetRec
 	return grc
 }
 
+// WithFieldsById returns the Record fields by field ID instead of names.
+func (grc *GetRecordsConfig) WithFieldsById() *GetRecordsConfig {
+	grc.params.Set("returnFieldsByFieldId", "true")
+	return grc
+}
+
 // Do send the prepared get records request.
 func (grc *GetRecordsConfig) Do() (*Records, error) {
 	return grc.table.GetRecordsWithParams(grc.params)
