@@ -25,6 +25,7 @@ func TestGetRecordsConfig_Do(t *testing.T) {
 		FromView("view_1").
 		WithFilterFormula("AND({Field1}='value_1',NOT({Field2}='value_2'))").
 		WithSort(sortQuery1, sortQuery2).
+		WithFieldsById().
 		ReturnFields("Field1", "Field2").
 		InStringFormat("Europe/Moscow", "ru").
 		MaxRecords(100).
